@@ -16,6 +16,8 @@ timezone: ''
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 # url: http://example.com
 url: https://silengzi.github.io/cube-fluid-blod
+# Hexo 默认生成的静态资源路径是以根目录 / 开头的，而在非根域名（如 https://silengzi.github.io/cube-fluid-blod/）下，资源路径会缺失 cube-fluid-blod 前缀，导致样式加载失败。
+# 需要设置 root 参数 在 Hexo 的 config.yml 文件中，设置 root 为仓库名：
 root: /cube-fluid-blod/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
