@@ -5,7 +5,7 @@ tags:
   - 前端
   - react
   - 工程化
-index_img: ![查看访问地址](https://silengzi.github.io/cube-fluid-blod/images/06801c81bb61b9e4010e4d53e2f489b.png)
+index_img: https://silengzi.github.io/cube-fluid-blod/images/06801c81bb61b9e4010e4d53e2f489b.png
 ---
 
 ## 简介
