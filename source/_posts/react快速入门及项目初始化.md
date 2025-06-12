@@ -1,11 +1,11 @@
 ---
-title: react前端项目初始化
+title: react快速入门及项目初始化
 date: 2025-06-11T10:26:46.000Z
 tags: 
   - 前端
   - react
   - 工程化
-index_img: https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMncyb3oyc21zc3czejU3cGk4M2tiNTdkaTM0N3FodGVpZmU5azNxaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fhXFCZEogq39rOpKUi/giphy.gif
+index_img: ![查看访问地址](https://silengzi.github.io/cube-fluid-blod/images/06801c81bb61b9e4010e4d53e2f489b.png)
 ---
 
 ## 简介
