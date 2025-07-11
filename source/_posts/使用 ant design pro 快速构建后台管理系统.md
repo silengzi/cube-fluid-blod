@@ -33,7 +33,7 @@ clone 完成后，安装依赖并运行，查看效果。安装依赖有可能�
 ```bash
 cd ant-design-pro
 npm i
-npm run 
+npm run start
 ```
 
 如果依赖安装太慢，可以尝试将 .npmrc 文件内容替换为下面的代码(走国内代理)：
