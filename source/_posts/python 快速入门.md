@@ -9,7 +9,7 @@ index_img: https://silengzi.github.io/cube-fluid-blod/images/6cca11f3b3e8187baf7
 ---
 
 
-摘要...
+本文简要介绍了 Python 语言的背景、优势及其在数据分析、人工智能、Web 开发等领域的广泛应用。文章涵盖了 Python 环境的高效管理方法（如 pyenv）、主流开发工具选择，并通过基础语法和调试示例，帮助初学者快速上手 Python 编程。
 
 
 ## 简介
@@ -94,6 +94,65 @@ tags = {"python", "js", "java"}
 
 ### 作用域
 
+1. 局部作用域（Local）
+函数内部定义的变量，只在函数内部有效：
+```python
+def greet():
+    message = "Hello"
+    print(message)
+
+greet()
+# print(message)  # ❌ NameError: name 'message' is not defined
+```
+
+2. 全局作用域（Global）
+函数外部定义的变量，整个模块都能访问：
+```python
+name = "Alice"
+
+def say_name():
+    print(name)  # ✅ 可以访问外部变量
+
+say_name()
+```
+但函数内不能直接修改全局变量，除非加 global。
+
+3. 使用 global 修改全局变量
+```python
+counter = 0
+
+def increment():
+    global counter
+    counter += 1
+
+increment()
+print(counter)  # 输出 1
+```
+不加 global 会报错：
+```python
+def wrong_increment():
+    counter += 1  # ❌ UnboundLocalError
+```
+
+4. 嵌套作用域与 nonlocal
+Python 允许函数中定义函数，内部函数访问外部函数变量：
+```python
+def outer():
+    x = 10
+    def inner():
+        print(x)  # ✅ 访问外部变量
+    inner()
+```
+但是，如果要修改外部函数的局部变量，需要用 nonlocal：
+```python
+def outer():
+    x = 10
+    def inner():
+        nonlocal x
+        x += 1
+    inner()
+    print(x)  # 输出 11
+```
 
 
 ### 循环
