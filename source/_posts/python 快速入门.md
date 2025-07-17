@@ -113,7 +113,6 @@ i = 0
 while i < 5:
     print(i)
     i += 1
-
 ```
 
 
@@ -128,7 +127,6 @@ elif x == 5:
     print("equal to 5")
 else:
     print("less than 5")
-
 ```
 
 条件后面必须加冒号 :
@@ -142,7 +140,6 @@ Python 中的布尔值：
 
 if not name:
     print("name is empty")
-
 ```
 
 
@@ -152,13 +149,11 @@ if not name:
 ```python
 def greet(name):
     print("Hello, " + name)
-
 ```
 
 调用函数：
 ```python
 greet("Alice")
-
 ```
 
 返回值：
@@ -175,7 +170,6 @@ print(result)
 
 ```python
 squares = [x * x for x in range(5)]
-
 ```
 
 相当于
@@ -183,7 +177,6 @@ squares = [x * x for x in range(5)]
 squares = []
 for x in range(5):
     squares.append(x * x)
-
 ```
 
 
@@ -191,7 +184,6 @@ for x in range(5):
 
 ```python
 result = "yes" if x > 5 else "no"
-
 ```
 
 
