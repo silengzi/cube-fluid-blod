@@ -6,6 +6,7 @@ tags:
   - react
   - 工程化
   - 快速入门
+  - 项目初始化
 index_img: https://silengzi.github.io/cube-fluid-blod/images/06801c81bb61b9e4010e4d53e2f489b.png
 ---
 
