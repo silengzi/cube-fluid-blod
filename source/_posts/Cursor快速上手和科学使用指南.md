@@ -9,7 +9,7 @@ tags:
   - AI编程
   - 开发工具
   - 教程
-index_img: /img/default.png
+index_img: images/1749179465178.png
 ---
 
 # Cursor快速上手+科学使用指南
