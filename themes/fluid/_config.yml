@@ -1018,6 +1018,22 @@ page404:
 
 
 #---------------------------
+# 作品集页
+# Portfolio Page
+#---------------------------
+portfolio:
+  enable: true
+  banner_img: /img/default.png
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+  # 作品集页面标题
+  title: "作品集"
+  # 作品集页面副标题
+  subtitle: "展示我的项目作品"
+  # 作品集页面描述
+  description: "这里展示了我开发的各种项目作品，包括Web应用、移动应用、桌面应用等。"
+
+#---------------------------
 # 友链页
 # Links Page
 #---------------------------

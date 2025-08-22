@@ -1,0 +1,145 @@
+---
+layout: portfolio-detail
+title: HTML作品集示例
+type: 示例
+cover: /images/portfolio/example-cover.png
+summary: 这是一个使用HTML格式创建的作品集示例，展示如何自定义HTML内容。
+techs:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Bootstrap
+links:
+  - { text: 在线演示, url: https://example.com/demo }
+  - { text: 源码地址, url: https://github.com/example/repo }
+gallery:
+  - /images/portfolio/example-1.png
+  - /images/portfolio/example-2.png
+---
+
+<div class="custom-html-content">
+  <div class="alert alert-info">
+    <h4>🎉 这是一个HTML作品集示例</h4>
+    <p>您可以在作品详情页面中使用完整的HTML标签和样式，实现更丰富的展示效果。</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">功能特点</h5>
+          <ul class="card-text">
+            <li>支持完整的HTML标签</li>
+            <li>可以使用Bootstrap样式</li>
+            <li>支持自定义CSS</li>
+            <li>可以嵌入JavaScript交互</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">技术亮点</h5>
+          <ul class="card-text">
+            <li>响应式设计</li>
+            <li>现代化UI</li>
+            <li>良好的用户体验</li>
+            <li>易于维护和扩展</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h4>项目截图</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/images/portfolio/example-1.png" class="img-fluid rounded" alt="截图1">
+        <p class="text-center mt-2">主页面</p>
+      </div>
+      <div class="col-md-4">
+        <img src="/images/portfolio/example-2.png" class="img-fluid rounded" alt="截图2">
+        <p class="text-center mt-2">功能页面</p>
+      </div>
+      <div class="col-md-4">
+        <img src="/images/portfolio/example-3.png" class="img-fluid rounded" alt="截图3">
+        <p class="text-center mt-2">设置页面</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <h4>开发过程</h4>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker bg-primary"></div>
+        <div class="timeline-content">
+          <h6>需求分析</h6>
+          <p>深入理解用户需求，制定详细的功能规划。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker bg-success"></div>
+        <div class="timeline-content">
+          <h6>设计阶段</h6>
+          <p>创建UI/UX设计，确保良好的用户体验。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker bg-warning"></div>
+        <div class="timeline-content">
+          <h6>开发实现</h6>
+          <p>使用现代技术栈进行功能开发。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker bg-info"></div>
+        <div class="timeline-content">
+          <h6>测试部署</h6>
+          <p>全面测试并部署到生产环境。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.custom-html-content {
+  max-width: 100%;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -45px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px #dee2e6;
+}
+
+.timeline-content {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid #007bff;
+}
+
+.timeline-content h6 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+</style>

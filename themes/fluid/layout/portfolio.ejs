@@ -1,79 +1,280 @@
 <%
 page.layout = "portfolio"
-page.title = page.title || '作品集'
-page.subtitle = page.subtitle || page.title
-page.banner_img = page.banner_img || theme.page.banner_img
-page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
-page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
+page.title = page.title || theme.portfolio.title || '作品集'
+page.subtitle = page.subtitle || theme.portfolio.subtitle || page.title
+page.banner_img = page.banner_img || theme.portfolio.banner_img || theme.page.banner_img
+page.banner_img_height = page.banner_img_height || theme.portfolio.banner_img_height || theme.page.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.portfolio.banner_mask_alpha || theme.page.banner_mask_alpha
 
 // 收集所有 portfolio-detail 页面作为数据源
 var allDetails = site.pages.filter(function(p) { return p.layout === 'portfolio-detail' })
 
-// 支持通过 url 查询参数进行类型筛选 ?type=业务|示例|公司|其他
-var filterType = (page.query && page.query.type) || ''
-var items = allDetails.filter(function(p) { return !filterType || (p.type && p.type.indexOf(filterType) !== -1) })
-
-// 分组显示（可选）
-var groups = {
-  '业务项目': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('业务') !== -1 }) || [],
-  '示例/组件': items.filter(function(p) { return p && p.type && ((p.type || '').indexOf('示例') !== -1 || (p.type || '').indexOf('组件') !== -1) }) || [],
-  '公司项目': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('公司') !== -1 }) || [],
-  '其他': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('其他') !== -1 }) || []
-
-}
-
-
+console.log(allDetails.data[0], 'allDetails.data[0]')
+var items = allDetails
 %>
 
-<div class="row">
-  <div class="col-12">
-    <p class="mb-3">
-      可通过添加查询参数过滤类型：
-      <a href="<%= url_for('/portfolio/') %>">全部</a> ·
-      <a href="<%= url_for('/portfolio/?type=业务') %>">业务项目</a> ·
-      <a href="<%= url_for('/portfolio/?type=示例') %>">示例/组件</a> ·
-      <a href="<%= url_for('/portfolio/?type=公司') %>">公司项目</a> ·
-      <a href="<%= url_for('/portfolio/?type=其他') %>">其他</a>
-    </p>
-  </div>
-</div>
-
-<% for (var groupName in groups) { %>
-  <% var groupItems = groups[groupName] %>
-  <% if (!groupItems || !groupItems.length) continue %>
-  <h3 class="mt-4 mb-3"><%- groupName %></h3>
+<!-- 作品集卡片展示 -->
+<div class="portfolio-grid">
   <div class="row">
-    <% for (var i = 0; i < groupItems.length; i++) { %>
-      <% var each = groupItems[i] %>
+    <% for (var i = 0; i < items.length; i++) { %>
+      <% var each = items.data[i] %>
       <% if (!each) continue %>
-      <div class="card col-lg-4 col-md-6 col-sm-12">
-        <a href="<%= url_for(each.permalink || each.path) %>" class="card-body hover-with-bg" target="_self">
+      
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div class="portfolio-card">
+          <% if (each.cover) { %>
+            <div class="card-image">
+              <img src="<%= url_for(each.cover) %>" alt="<%= each.title %>">
+            </div>
+          <% } %>
+          
           <div class="card-content">
-            <% if (each.cover) { %>
-              <div class="link-avatar my-auto">
-                <img src="<%= url_for(each.cover) %>" alt="<%= each.title %>"/>
+            <h3 class="card-title">
+              <a href="<%= url_for(each.permalink || each.path) %>">
+                <%- each.title %>
+              </a>
+            </h3>
+            
+            <p class="card-description">
+              <%- (each.summary || '').substring(0, 80) %><%= (each.summary && each.summary.length > 80) ? '...' : '' %>
+            </p>
+            
+            <div class="card-meta">
+              <span class="card-time">几秒前</span>
+              <div class="card-avatars">
+                <div class="avatar"></div>
+                <div class="avatar"></div>
+                <div class="avatar"></div>
               </div>
-            <% } %>
-            <div class="link-text">
-              <div class="link-title"><%- each.title %></div>
-              <div class="link-intro">
-                <%- (each.summary || '').substring(0, 96) %>
-              </div>
-              <% if (each.type) { %>
-                <div class="mt-1" style="font-size: 12px; opacity: .8;">
-                  <span><%= each.type %></span>
-                </div>
-              <% } %>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     <% } %>
   </div>
-<% } %>
+</div>
 
 <% if (!items.length) { %>
-  <p>暂无数据。</p>
+<div class="empty-state text-center py-5">
+  <div class="empty-icon mb-4">
+    <i class="iconfont icon-folder-open-fill" style="font-size: 4rem; color: #ccc;"></i>
+  </div>
+  <h4 class="text-muted">暂无作品</h4>
+  <p class="text-muted">还没有添加任何作品，请先创建一些作品集项目。</p>
+</div>
 <% } %>
 
+<style>
+/* 作品集卡片样式 - 参考截图设计 */
+.portfolio-grid {
+  padding: 20px 0;
+}
 
+.portfolio-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 卡片图片区域 */
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* 卡片内容区域 */
+.card-content {
+  padding: 20px;
+  background: #fff;
+  position: relative;
+}
+
+.card-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.card-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+  color: #007bff;
+}
+
+.card-description {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 卡片底部元信息 */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.card-time {
+  color: #999;
+  font-size: 12px;
+}
+
+.card-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  margin-left: -8px;
+  border: 2px solid #fff;
+  position: relative;
+}
+
+.avatar:nth-child(1) {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  margin-left: 0;
+}
+
+.avatar:nth-child(2) {
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+
+.avatar:nth-child(3) {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+/* 水印效果 */
+.card-content::after {
+  content: "Silengzi";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: rgba(0, 0, 0, 0.03);
+  font-size: 24px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 空状态样式 */
+.empty-state {
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px dashed #dee2e6;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  color: #ccc;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .portfolio-card {
+    margin-bottom: 20px;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-title {
+    font-size: 16px;
+  }
+  
+  .card-description {
+    font-size: 13px;
+  }
+}
+
+/* 暗色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .portfolio-card {
+    background: #2d3748;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-content {
+    background: #2d3748;
+  }
+  
+  .card-title a {
+    color: #e2e8f0;
+  }
+  
+  .card-title a:hover {
+    color: #63b3ed;
+  }
+  
+  .card-description {
+    color: #a0aec0;
+  }
+  
+  .card-meta {
+    border-top-color: #4a5568;
+  }
+  
+  .card-time {
+    color: #718096;
+  }
+  
+  .empty-state {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+  
+  .card-content::after {
+    color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* 网格布局优化 */
+.portfolio-grid .row {
+  margin: 0 -10px;
+}
+
+.portfolio-grid .col-lg-4,
+.portfolio-grid .col-md-6,
+.portfolio-grid .col-sm-12 {
+  padding: 0 10px;
+}
+</style>
