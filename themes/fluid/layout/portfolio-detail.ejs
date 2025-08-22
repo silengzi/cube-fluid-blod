@@ -1,0 +1,53 @@
+<%
+page.layout = "portfolio-detail"
+page.title = page.title || '作品详情'
+page.subtitle = page.subtitle || page.title
+page.banner_img = page.banner_img || theme.page.banner_img
+page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
+%>
+
+<article class="page-content">
+  <h1><%- page.title %></h1>
+  <% if (page.type) { %>
+    <p class="text-muted" style="margin-top: -8px;">
+      <span>类型：</span><span><%= page.type %></span>
+    </p>
+  <% } %>
+
+  <% if (page.techs && page.techs.length) { %>
+    <p><strong>技术栈：</strong><%= page.techs.join('、') %></p>
+  <% } %>
+
+  <% if (page.links && page.links.length) { %>
+    <p><strong>链接：</strong>
+      <% for (const link of page.links) { %>
+        <a href="<%= url_for(link.url) %>" target="_blank" rel="noopener"><%= link.text %></a><span> </span>
+      <% } %>
+    </p>
+  <% } %>
+
+  <% if (page.cover) { %>
+    <p>
+      <img src="<%= url_for(page.cover) %>" alt="cover"/>
+    </p>
+  <% } %>
+
+  <%- page.content %>
+
+  <% if (page.gallery && page.gallery.length) { %>
+    <hr/>
+    <h3>画廊</h3>
+    <div class="row">
+      <% for (const img of page.gallery) { %>
+        <div class="col-md-4 col-sm-6 col-12 mb-3">
+          <img src="<%= url_for(img) %>" class="img-fluid" alt="screenshot"/>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+
+  <%- inject_point('pageComments') %>
+</article>
+
+

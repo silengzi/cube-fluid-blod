@@ -1,0 +1,79 @@
+<%
+page.layout = "portfolio"
+page.title = page.title || '作品集'
+page.subtitle = page.subtitle || page.title
+page.banner_img = page.banner_img || theme.page.banner_img
+page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
+
+// 收集所有 portfolio-detail 页面作为数据源
+var allDetails = site.pages.filter(function(p) { return p.layout === 'portfolio-detail' })
+
+// 支持通过 url 查询参数进行类型筛选 ?type=业务|示例|公司|其他
+var filterType = (page.query && page.query.type) || ''
+var items = allDetails.filter(function(p) { return !filterType || (p.type && p.type.indexOf(filterType) !== -1) })
+
+// 分组显示（可选）
+var groups = {
+  '业务项目': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('业务') !== -1 }) || [],
+  '示例/组件': items.filter(function(p) { return p && p.type && ((p.type || '').indexOf('示例') !== -1 || (p.type || '').indexOf('组件') !== -1) }) || [],
+  '公司项目': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('公司') !== -1 }) || [],
+  '其他': items.filter(function(p) { return p && p.type && (p.type || '').indexOf('其他') !== -1 }) || []
+
+}
+
+
+%>
+
+<div class="row">
+  <div class="col-12">
+    <p class="mb-3">
+      可通过添加查询参数过滤类型：
+      <a href="<%= url_for('/portfolio/') %>">全部</a> ·
+      <a href="<%= url_for('/portfolio/?type=业务') %>">业务项目</a> ·
+      <a href="<%= url_for('/portfolio/?type=示例') %>">示例/组件</a> ·
+      <a href="<%= url_for('/portfolio/?type=公司') %>">公司项目</a> ·
+      <a href="<%= url_for('/portfolio/?type=其他') %>">其他</a>
+    </p>
+  </div>
+</div>
+
+<% for (var groupName in groups) { %>
+  <% var groupItems = groups[groupName] %>
+  <% if (!groupItems || !groupItems.length) continue %>
+  <h3 class="mt-4 mb-3"><%- groupName %></h3>
+  <div class="row">
+    <% for (var i = 0; i < groupItems.length; i++) { %>
+      <% var each = groupItems[i] %>
+      <% if (!each) continue %>
+      <div class="card col-lg-4 col-md-6 col-sm-12">
+        <a href="<%= url_for(each.permalink || each.path) %>" class="card-body hover-with-bg" target="_self">
+          <div class="card-content">
+            <% if (each.cover) { %>
+              <div class="link-avatar my-auto">
+                <img src="<%= url_for(each.cover) %>" alt="<%= each.title %>"/>
+              </div>
+            <% } %>
+            <div class="link-text">
+              <div class="link-title"><%- each.title %></div>
+              <div class="link-intro">
+                <%- (each.summary || '').substring(0, 96) %>
+              </div>
+              <% if (each.type) { %>
+                <div class="mt-1" style="font-size: 12px; opacity: .8;">
+                  <span><%= each.type %></span>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+<% } %>
+
+<% if (!items.length) { %>
+  <p>暂无数据。</p>
+<% } %>
+
+
