@@ -1,0 +1,845 @@
+---
+layout: portfolio-detail
+title: Cesium 三维可视化示例（模板）
+type: 示例 组件
+cover: /images/portfolio/cesium-cover.png
+summary: 集成测量、标绘、路径、热力、倾斜摄影叠加等三维能力。
+techs:
+  - CesiumJS
+  - WebGL
+  - Turf.js
+  - Vite
+links:
+  - { text: Demo, url: https://example.com/cesium-demos }
+  - { text: GitHub, url: https://github.com/yourname/cesium-demos }
+gallery:
+  - /images/portfolio/cesium-1.png
+---
+
+<div class="custom-html-content">
+  <!-- 项目头部 -->
+  <div class="project-hero">
+    <div class="hero-background">
+      <div class="bg-gradient"></div>
+      <div class="bg-pattern"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon">🌍</span>
+        <span class="badge-text">三维可视化</span>
+      </div>
+      <h1 class="hero-title">Cesium 三维可视化示例</h1>
+      <p class="hero-subtitle">基于 CesiumJS 的三维地球可视化解决方案，提供丰富的三维交互能力和地理信息展示功能。</p>
+      <div class="hero-actions">
+        <a href="https://example.com/cesium-demos" target="_blank" class="btn btn-primary">
+          <i class="iconfont icon-external-link"></i>
+          在线演示
+        </a>
+        <a href="https://github.com/yourname/cesium-demos" target="_blank" class="btn btn-secondary">
+          <i class="iconfont icon-github"></i>
+          源码地址
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心特性 -->
+  <div class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">核心特性</h2>
+      <p class="section-subtitle">强大的三维可视化能力</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">
+          <i class="iconfont icon-earth"></i>
+        </div>
+        <h3>🌐 三维地球</h3>
+        <p>基于 WebGL 的高性能三维地球渲染，支持多种地图服务和地形数据。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">
+          <i class="iconfont icon-location"></i>
+        </div>
+        <h3>📍 空间测量</h3>
+        <p>提供距离、面积、角度等多种空间测量工具，支持精确的地理计算。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon">
+          <i class="iconfont icon-draw"></i>
+        </div>
+        <h3>✏️ 图形标绘</h3>
+        <p>支持点、线、面、圆等多种几何图形的绘制和编辑功能。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-icon">
+          <i class="iconfont icon-route"></i>
+        </div>
+        <h3>🛣️ 路径分析</h3>
+        <p>路径规划、轨迹回放、动态路径展示等高级路径分析功能。</p>
+        <div class="feature-decoration"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 功能模块 -->
+  <div class="modules-section">
+    <div class="section-header">
+      <h2 class="section-title">功能模块</h2>
+      <p class="section-subtitle">完整的三维可视化工具集</p>
+    </div>
+    
+    <div class="modules-grid">
+      <div class="module-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="module-header">
+          <div class="module-icon">🗺️</div>
+          <h3>地图服务</h3>
+        </div>
+        <ul class="module-list">
+          <li>天地图服务</li>
+          <li>高德地图</li>
+          <li>OpenStreetMap</li>
+          <li>自定义瓦片</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="module-header">
+          <div class="module-icon">📐</div>
+          <h3>测量工具</h3>
+        </div>
+        <ul class="module-list">
+          <li>距离测量</li>
+          <li>面积计算</li>
+          <li>角度测量</li>
+          <li>高度测量</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="module-header">
+          <div class="module-icon">🎨</div>
+          <h3>标绘功能</h3>
+        </div>
+        <ul class="module-list">
+          <li>点标记</li>
+          <li>线绘制</li>
+          <li>面绘制</li>
+          <li>文字标注</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="module-header">
+          <div class="module-icon">🔥</div>
+          <h3>热力图</h3>
+        </div>
+        <ul class="module-list">
+          <li>点密度热力</li>
+          <li>数值热力图</li>
+          <li>动态热力</li>
+          <li>自定义配色</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="module-header">
+          <div class="module-icon">🏗️</div>
+          <h3>3D模型</h3>
+        </div>
+        <ul class="module-list">
+          <li>倾斜摄影</li>
+          <li>3D建筑</li>
+          <li>模型加载</li>
+          <li>动画效果</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="module-header">
+          <div class="module-icon">⚙️</div>
+          <h3>工具集</h3>
+        </div>
+        <ul class="module-list">
+          <li>图层管理</li>
+          <li>视角控制</li>
+          <li>截图导出</li>
+          <li>坐标转换</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 技术架构 -->
+  <div class="tech-section">
+    <div class="section-header">
+      <h2 class="section-title">技术架构</h2>
+      <p class="section-subtitle">现代化的技术栈</p>
+    </div>
+    
+    <div class="tech-layers">
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="100">
+        <div class="layer-info">
+          <h3>应用层</h3>
+          <p>现代化的前端框架</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">Vue 3</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Vite</span>
+        </div>
+      </div>
+      
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="200">
+        <div class="layer-info">
+          <h3>三维引擎</h3>
+          <p>强大的渲染能力</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">CesiumJS</span>
+          <span class="tech-tag">WebGL</span>
+          <span class="tech-tag">Three.js</span>
+        </div>
+      </div>
+      
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="300">
+        <div class="layer-info">
+          <h3>地理计算</h3>
+          <p>精确的空间分析</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">Turf.js</span>
+          <span class="tech-tag">Proj4js</span>
+          <span class="tech-tag">Geojson</span>
+        </div>
+      </div>
+      
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="400">
+        <div class="layer-info">
+          <h3>数据处理</h3>
+          <p>高效的数据管理</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">Axios</span>
+          <span class="tech-tag">File API</span>
+          <span class="tech-tag">Web Workers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 代码示例 -->
+  <div class="code-section">
+    <div class="section-header">
+      <h2 class="section-title">使用示例</h2>
+      <p class="section-subtitle">快速上手指南</p>
+    </div>
+    
+    <div class="code-examples">
+      <div class="code-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="code-header">
+          <h3>初始化 Cesium</h3>
+          <div class="code-actions">
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="iconfont icon-copy"></i>
+            </button>
+          </div>
+        </div>
+        <pre class="code-block"><code class="language-javascript">// 创建 Cesium Viewer
+const viewer = new Cesium.Viewer('cesiumContainer', {
+  terrainProvider: Cesium.createWorldTerrain(),
+  baseLayerPicker: false,
+  geocoder: false,
+  homeButton: false,
+  sceneModePicker: false,
+  navigationHelpButton: false,
+  animation: false,
+  timeline: false
+});</code></pre>
+      </div>
+      
+      <div class="code-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="code-header">
+          <h3>添加标记点</h3>
+          <div class="code-actions">
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="iconfont icon-copy"></i>
+            </button>
+          </div>
+        </div>
+        <pre class="code-block"><code class="language-javascript">// 添加点标记
+viewer.entities.add({
+  position: Cesium.Cartesian3.fromDegrees(116.391, 39.904),
+  point: {
+    pixelSize: 10,
+    color: Cesium.Color.YELLOW,
+    outlineColor: Cesium.Color.BLACK,
+    outlineWidth: 2
+  },
+  label: {
+    text: '北京',
+    font: '14pt sans-serif',
+    fillColor: Cesium.Color.WHITE,
+    outlineColor: Cesium.Color.BLACK,
+    outlineWidth: 2,
+    style: Cesium.LabelStyle.FILL_AND_OUTLINE
+  }
+});</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 全局样式 */
+.custom-html-content {
+  max-width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰 */
+.custom-html-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 项目头部 */
+.project-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+}
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.badge-text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 通用区块样式 */
+.features-section,
+.modules-section,
+.tech-section,
+.code-section {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* 特性卡片 */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feature-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .feature-decoration {
+  opacity: 1;
+}
+
+/* 模块网格 */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 0 40px;
+}
+
+.module-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.4s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.module-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.module-header h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.module-list li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 20px;
+}
+
+.module-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.module-list li:last-child {
+  border-bottom: none;
+}
+
+/* 技术架构 */
+.tech-layers {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.tech-layer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.tech-layer:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.layer-info h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.layer-info p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.layer-techs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 代码示例 */
+.code-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.code-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.code-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-header h3 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.code-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  color: #e2e8f0;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .features-grid,
+  .modules-grid,
+  .code-examples {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  
+  .tech-layers {
+    padding: 0 20px;
+  }
+  
+  .tech-layer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-aos="fade-up"] {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+[data-aos="fade-right"] {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+</style>
+
+<script>
+function copyCode(button) {
+  const codeBlock = button.closest('.code-card').querySelector('code');
+  const text = codeBlock.textContent;
+  
+  navigator.clipboard.writeText(text).then(() => {
+    const icon = button.querySelector('i');
+    const originalClass = icon.className;
+    icon.className = 'iconfont icon-check';
+    button.style.background = 'rgba(34, 197, 94, 0.2)';
+    button.style.borderColor = 'rgba(34, 197, 94, 0.4)';
+    
+    setTimeout(() => {
+      icon.className = originalClass;
+      button.style.background = '';
+      button.style.borderColor = '';
+    }, 2000);
+  });
+}
+</script>

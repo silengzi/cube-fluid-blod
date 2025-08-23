@@ -1,0 +1,753 @@
+---
+layout: portfolio-detail
+title: Cube Admin 后台管理系统（模板）
+type: 业务
+cover: /images/portfolio/cube-admin-cover.png
+summary: 基于 React + Ant Design Pro 的中后台快速开发脚手架，内置权限、菜单、表格、表单示例。
+techs:
+  - React 18
+  - TypeScript
+  - Ant Design Pro
+  - umi
+  - ahooks
+  - JWT
+links:
+  - { text: Demo, url: https://example.com/cube-admin }
+  - { text: GitHub, url: https://github.com/yourname/cube-admin }
+gallery:
+  - /images/portfolio/cube-admin-1.png
+  - /images/portfolio/cube-admin-2.png
+---
+
+<div class="custom-html-content">
+  <!-- 项目头部 -->
+  <div class="project-hero">
+    <div class="hero-background">
+      <div class="bg-gradient"></div>
+      <div class="bg-pattern"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon">🚀</span>
+        <span class="badge-text">企业级后台</span>
+      </div>
+      <h1 class="hero-title">Cube Admin 后台管理系统</h1>
+      <p class="hero-subtitle">基于 React + Ant Design Pro 的中后台快速开发脚手架，内置权限、菜单、表格、表单示例。</p>
+      <div class="hero-actions">
+        <a href="https://example.com/cube-admin" target="_blank" class="btn btn-primary">
+          <i class="iconfont icon-external-link"></i>
+          在线演示
+        </a>
+        <a href="https://github.com/yourname/cube-admin" target="_blank" class="btn btn-secondary">
+          <i class="iconfont icon-github"></i>
+          源码地址
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心特性 -->
+  <div class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">核心特性</h2>
+      <p class="section-subtitle">企业级后台管理系统的核心能力</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">
+          <i class="iconfont icon-component"></i>
+        </div>
+        <h3>🔧 通用组件抽象</h3>
+        <p>统一数据请求、分页、表格列配置与表单项描述，大幅提升开发效率。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">
+          <i class="iconfont icon-lock"></i>
+        </div>
+        <h3>🔐 权限体系</h3>
+        <p>基于路由与资源的细粒度权限控制与菜单生成，确保系统安全性。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon">
+          <i class="iconfont icon-speed"></i>
+        </div>
+        <h3>⚡ 性能优化</h3>
+        <p>组件级代码分割与路由懒加载，确保应用快速响应。</p>
+        <div class="feature-decoration"></div>
+      </div>
+      
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-icon">
+          <i class="iconfont icon-mobile"></i>
+        </div>
+        <h3>📱 响应式设计</h3>
+        <p>完美适配桌面端和移动端设备，提供一致的用户体验。</p>
+        <div class="feature-decoration"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 技术架构 -->
+  <div class="tech-section">
+    <div class="section-header">
+      <h2 class="section-title">技术架构</h2>
+      <p class="section-subtitle">现代化的技术栈设计</p>
+    </div>
+    
+    <div class="tech-layers">
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="100">
+        <div class="layer-info">
+          <h3>应用层</h3>
+          <p>现代化的前端框架</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">React 18</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Ant Design Pro</span>
+        </div>
+      </div>
+      
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="200">
+        <div class="layer-info">
+          <h3>框架层</h3>
+          <p>强大的开发框架</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">umi</span>
+          <span class="tech-tag">ahooks</span>
+          <span class="tech-tag">React Router</span>
+        </div>
+      </div>
+      
+      <div class="tech-layer" data-aos="fade-right" data-aos-delay="300">
+        <div class="layer-info">
+          <h3>安全层</h3>
+          <p>完善的安全机制</p>
+        </div>
+        <div class="layer-techs">
+          <span class="tech-tag">JWT</span>
+          <span class="tech-tag">RBAC</span>
+          <span class="tech-tag">CORS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 功能模块 -->
+  <div class="modules-section">
+    <div class="section-header">
+      <h2 class="section-title">核心功能模块</h2>
+      <p class="section-subtitle">完整的企业级功能体系</p>
+    </div>
+    
+    <div class="modules-grid">
+      <div class="module-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="module-header">
+          <i class="iconfont icon-user"></i>
+          <h3>用户管理</h3>
+        </div>
+        <ul class="module-list">
+          <li>用户注册与登录</li>
+          <li>角色权限分配</li>
+          <li>个人信息管理</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="module-header">
+          <i class="iconfont icon-menu"></i>
+          <h3>菜单管理</h3>
+        </div>
+        <ul class="module-list">
+          <li>动态菜单生成</li>
+          <li>权限控制</li>
+          <li>面包屑导航</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="module-header">
+          <i class="iconfont icon-table"></i>
+          <h3>数据表格</h3>
+        </div>
+        <ul class="module-list">
+          <li>分页查询</li>
+          <li>排序筛选</li>
+          <li>批量操作</li>
+        </ul>
+      </div>
+      
+      <div class="module-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="module-header">
+          <i class="iconfont icon-form"></i>
+          <h3>表单组件</h3>
+        </div>
+        <ul class="module-list">
+          <li>动态表单</li>
+          <li>表单验证</li>
+          <li>文件上传</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 开发流程 -->
+  <div class="timeline-section">
+    <div class="section-header">
+      <h2 class="section-title">开发流程</h2>
+      <p class="section-subtitle">专业的开发方法论</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-marker bg-primary"></div>
+        <div class="timeline-content">
+          <h3>需求分析</h3>
+          <p>深入理解业务需求，制定详细的功能规划和技术方案。</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-marker bg-success"></div>
+        <div class="timeline-content">
+          <h3>架构设计</h3>
+          <p>设计系统架构，确定技术栈和组件结构。</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-marker bg-warning"></div>
+        <div class="timeline-content">
+          <h3>核心开发</h3>
+          <p>实现核心功能模块，包括权限、菜单、表格等组件。</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="timeline-marker bg-info"></div>
+        <div class="timeline-content">
+          <h3>测试优化</h3>
+          <p>全面测试功能，优化性能，确保系统稳定性。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 全局样式 */
+.custom-html-content {
+  max-width: 100%;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰 */
+.custom-html-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(40, 167, 69, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(32, 201, 151, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 项目头部 */
+.project-hero {
+  position: relative;
+  padding: 120px 0 80px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.9) 0%, rgba(32, 201, 151, 0.9) 100%);
+}
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.badge-text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 通用区块样式 */
+.features-section,
+.tech-section,
+.modules-section,
+.timeline-section {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* 特性卡片 */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 40px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.feature-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .feature-decoration {
+  opacity: 1;
+}
+
+/* 技术架构 */
+.tech-layers {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.tech-layer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.tech-layer:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.layer-info h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.layer-info p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.layer-techs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tech-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 模块网格 */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0 40px;
+}
+
+.module-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.4s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.module-header i {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.module-header h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.module-list li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 20px;
+}
+
+.module-list li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.module-list li:last-child {
+  border-bottom: none;
+}
+
+/* 时间线 */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 11px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.4s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.timeline-content h3 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.timeline-content p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .features-grid,
+  .modules-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  
+  .tech-layers {
+    padding: 0 20px;
+  }
+  
+  .tech-layer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .timeline {
+    padding: 0 20px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+[data-aos="fade-up"] {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+[data-aos="fade-right"] {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+</style>
