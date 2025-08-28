@@ -2,6 +2,7 @@
 title: Hello World
 date: 2025-02-17T10:42:46.000Z
 index_img: https://img1.baidu.com/it/u=1468860341,3262943365&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800
+published: false
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 

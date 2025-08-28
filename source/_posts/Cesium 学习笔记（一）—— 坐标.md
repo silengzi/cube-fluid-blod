@@ -8,8 +8,6 @@ tags:
 
 ---
 
-> 大家好，我是日拱一卒的攻城师不浪，专注可视化、数字孪生、前端提效、nodejs、AI学习、GIS等学习沉淀，这是2024年输出的第30/100篇文章。
-
 ## 前言
 
 想学`Cesium开发`，你如果对一些GIS基础，特别是`坐标系`概念不了解的话，会让你非常难受，今天我们就来聊聊`WebGiser`开发过程中常用到的一些坐标系概念。
@@ -188,13 +186,3 @@ var cartesian3 = viewer.scene.globe.pick(viewer.camera.getPickRay(windowPostion)
 ```js
 windowPostion = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian3); 
 ```
-
-## 结语
-
-> 作者的Cesium系列课程\*\*《Cesium从入门到实战》\*\*即将完结，课程介绍：[ww7rybwvygd.feishu.cn/docx/PG1TdA…](https://ww7rybwvygd.feishu.cn/docx/PG1TdAhK0oASyZxluGqciO7BnSg "https://ww7rybwvygd.feishu.cn/docx/PG1TdAhK0oASyZxluGqciO7BnSg")
-
-如果想自学Cesium的也可以参考我的【开源项目】：[github.com/tingyuxuan2…](https://github.com/tingyuxuan2302/cesium-vue3-vite "https://github.com/tingyuxuan2302/cesium-vue3-vite")
-
-> 有需要进技术产品开发交流群(可视化&GIS)可以加我：brown\_7778（备注来意），也欢迎`数字孪生可视化领域`的交流合作。
-
-最后，如果觉得文章对你有帮助，也希望可以一键三连👏👏👏，支持我持续开源和分享~
