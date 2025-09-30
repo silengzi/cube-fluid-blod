@@ -1,5 +1,5 @@
 ---
-title: Cesium 学习笔记（一）—— 坐标
+title: Cesium 学习笔记（2）—— 坐标系
 date: 2025-09-29T11:54:00.000Z
 tags: 
   - 前端
@@ -8,7 +8,7 @@ tags:
 categories: 
   - 前端
   - 面试
-published: false
+published: true
 ---
 
 
@@ -16,9 +16,9 @@ published: false
 
 ---
 
-## gis概念中的坐标系
+## 一、传统 GIS 概念中的坐标系
 
-在GIS（地理信息系统）中，坐标系是用于定义地理要素在地球表面或地图上位置的基础框架。主要可以分为两大类：地理坐标系（Geographic Coordinate System, GCS）和投影坐标系（Projected Coordinate System, PCS）。此外，还有局部坐标系等特殊类型。
+首先了解下 GIS（地理信息系统） 中的坐标系。在GIS中，坐标系是用于定义地理要素在地球表面或地图上位置的基础框架。主要可以分为两大类：地理坐标系（Geographic Coordinate System, GCS）和投影坐标系（Projected Coordinate System, PCS）。此外，还有局部坐标系等特殊类型。
 
 ### 1. 地理坐标系（Geographic Coordinate System）
 
@@ -58,7 +58,7 @@ published: false
 
 ---
 
-### 总结对比表：
+### 对比表：
 
 | 类型 | 维度 | 单位 | 示例 | 用途 |
 |------|------|------|------|------|
@@ -68,11 +68,27 @@ published: false
 
 ---
 
-**提示**：在GIS软件（如ArcGIS、QGIS）中，正确设置和转换坐标系至关重要，否则会导致位置偏移、叠加错误等问题。例如，中国常用的CGCS2000_3_Degree_GK_Zone_38就是一个投影坐标系，基于CGCS2000地理坐标系，采用3度高斯投影。
+> 补充：其实还有地心地固坐标系（笛卡尔空间直角坐标系），既不属于地理坐标系，也不属于投影坐标系，只是传统 GIS 教学或应用中常简化为“地理 与 投影”，且用户对这类坐标系的感知也较弱。更完整的坐标系分类可参考如下：
+```text
+地球空间坐标系
+├── 1. 曲面坐标系（Curvilinear）
+│   └── 地理坐标系（Lon/Lat/Height）
+│
+├── 2. 投影平面坐标系（Projected Planar）
+│   └── 各种地图投影（UTM, Web Mercator 等）
+│
+└── 3. 空间直角坐标系（Spatial Cartesian）
+    ├── 地心地固坐标系（ECEF, X/Y/Z）
+    └── 局部空间直角坐标系（ENU, X/Y/Z）
+```
 
-## 一、Cesium 中的四大核心坐标系
+---
 
-Cesium 使用了多种坐标系来满足不同场景的需求，主要可以分为以下四类：
+<!-- **提示**：在GIS软件（如ArcGIS、QGIS）中，正确设置和转换坐标系至关重要，否则会导致位置偏移、叠加错误等问题。例如，中国常用的CGCS2000_3_Degree_GK_Zone_38就是一个投影坐标系，基于CGCS2000地理坐标系，采用3度高斯投影。 -->
+
+## 二、Cesium 中的四大核心坐标系
+
+了解完 GIS 中的坐标系后，再来看 Cesium 中的几种坐标系。Cesium 使用了多种坐标系来满足不同场景的需求，主要可以分为以下四类：
 
 ### 1. **WGS84 地理坐标系（Geographic Coordinate System）**
 
@@ -99,7 +115,7 @@ const cartographic = new Cesium.Cartographic(
 const cartographic = Cesium.Cartographic.fromDegrees(116.3, 39.9, 1000);
 ```
 
-> ⚠️ 注意：`Cartographic` 是弧度制，但 `fromDegrees` 方法会自动转为弧度。
+> ⚠️ 注意：`WGS84` 只是用于输入地理坐标，属于应用层面的概念，便于我们输入地理坐标，可根据需要换成其他坐标系。Cesium 底层会将其转换成笛卡尔空间直角坐标，再进行计算。
 
 ---
 
@@ -188,81 +204,7 @@ handler.setInputAction(function(click) {
 
 ---
 
-## 二、坐标转换方法
-
-### ✅ 1. **角度 ↔ 弧度**
-
-```js
-// 角度转弧度
-const radians = Cesium.Math.toRadians(degrees);
-
-// 弧度转角度
-const degrees = Cesium.Math.toDegrees(radians);
-```
-
----
-
-### ✅ 2. **地理坐标 ↔ 笛卡尔坐标（ECEF）**
-
-| 转换方向 | 方法 |
-|--------|------|
-| 经纬度（角度）→ Cartesian3 | `Cesium.Cartesian3.fromDegrees(long, lat, height)` |
-| 经纬度（弧度）→ Cartesian3 | `Cesium.Cartesian3.fromRadians(longRad, latRad, height)` |
-| Cartesian3 → 地理坐标（弧度） | `Cesium.Cartographic.fromCartesian(cartesian3)` |
-| Cartesian3 → 经纬度（角度） | 先转弧度，再转角度 |
-
-```js
-// 示例：笛卡尔转经纬度（角度）
-const cartographic = Cesium.Cartographic.fromCartesian(cartesian3);
-const lon = Cesium.Math.toDegrees(cartographic.longitude);
-const lat = Cesium.Math.toDegrees(cartographic.latitude);
-const height = cartographic.height;
-```
-
----
-
-### ✅ 3. **批量坐标转换**
-
-```js
-// 多个点（不带高度）
-const positions = Cesium.Cartesian3.fromDegreesArray([
-  116.3, 39.9,
-  117.0, 40.0
-]);
-
-// 多个点（带高度）
-const positions = Cesium.Cartesian3.fromDegreesArrayHeights([
-  116.3, 39.9, 1000,
-  117.0, 40.0, 2000
-]);
-```
-
----
-
-### ✅ 4. **屏幕坐标 ↔ 世界坐标**
-
-| 转换方向 | 方法 |
-|--------|------|
-| 屏幕坐标 → 世界坐标（ECEF） | `viewer.scene.pickPosition(windowPosition)` 或 `viewer.scene.camera.pickEllipsoid()` |
-| 世界坐标 → 屏幕坐标 | `Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, cartesian3)` |
-
-```js
-// 屏幕坐标转世界坐标
-const ray = viewer.camera.getPickRay(windowPosition);
-const cartesian = viewer.scene.globe.pick(ray, viewer.scene);
-
-// 世界坐标转屏幕坐标
-const windowPos = Cesium.SceneTransforms.wgs84ToWindowCoordinates(
-  viewer.scene,
-  cartesian3
-);
-```
-
-> ⚠️ 注意：`wgs84ToWindowCoordinates` 返回的是 `Cartesian2`，但可能在视窗外为 `undefined`。
-
----
-
-## 三、常见面试问题与回答
+## 三、常见问题与回答
 
 ### ❓ Q1: Cesium 中有哪些坐标系？它们的区别是什么？
 
@@ -297,26 +239,6 @@ const windowPos = Cesium.SceneTransforms.wgs84ToWindowCoordinates(
 
 ---
 
-## 四、注意事项（加分项）
-
-1. **高度是相对于椭球面，不是地面**  
-   若需真实海拔，需结合地形数据：
-   ```js
-   const cartographic = Cesium.Cartographic.fromDegrees(116.3, 39.9);
-   const height = viewer.scene.globe.getHeight(cartographic); // 需开启地形
-   ```
-
-2. **坐标转换依赖椭球模型**  
-   默认使用 `Ellipsoid.WGS84`，特殊场景可自定义。
-
-3. **性能考虑**  
-   批量转换使用 `fromDegreesArray` 比单个转换更高效。
-
-4. **坐标有效性**  
-   屏幕外的点转屏幕坐标可能返回 `undefined`，需做空值判断。
-
----
-
 ## 总结
 
 | 坐标系 | 对象 | 用途 | 是否用于计算 |
@@ -325,10 +247,3 @@ const windowPos = Cesium.SceneTransforms.wgs84ToWindowCoordinates(
 | 地心地固坐标 | `Cartesian3` | 空间计算、渲染 | ✅（核心） |
 | 局部坐标（ENU） | 矩阵变换 | 模型姿态、局部移动 | ✅ |
 | 屏幕坐标 | `Cartesian2` | 鼠标交互、UI | ✅ |
-
-✅ **掌握坐标系转换是 Cesium 开发的基石**，建议动手实践以下操作：
-- 经纬度 ↔ Cartesian3
-- 屏幕点击获取地理坐标
-- 模型局部平移
-
-熟练掌握这些内容，面试中关于坐标系的问题基本都能轻松应对！
