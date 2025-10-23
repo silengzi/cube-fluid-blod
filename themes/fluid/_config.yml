@@ -32,6 +32,10 @@ tab_title_separator: " - "
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: false
 
+# 添加自定义头部内容，解决图片防盗链问题
+# Add custom head content to solve image anti-leech problem
+custom_head: '<meta name="referrer" content="no-referrer" />'
+
 # 代码块的增强配置
 # Enhancements to code blocks
 code:
@@ -1031,7 +1035,7 @@ portfolio:
   # 作品集页面副标题
   subtitle: "展示我的项目作品"
   # 作品集页面描述
-  description: "这里展示了我开发的各种项目作品，包括Web应用、移动应用、桌面应用等。"
+  description: "这里展示了我开发的各种项目作品，包括Web应用、移动应用、桌面应用等."
 
 #---------------------------
 # 友链页
