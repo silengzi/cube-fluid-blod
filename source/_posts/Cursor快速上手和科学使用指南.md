@@ -1596,7 +1596,23 @@ Cursor官网开发指导流程：
 
 5. 实现和测试
 
+## 六、重置机器码
 
+### 6.1 重置机器码操作
 
+1. 管理员方式打开powershell
+2. 输入命令：
+```bat
+irm https://raw.githubusercontent.com/yuaotian/go-cursor-help/refs/heads/master/scripts/run/cursor_win_id_modifier.ps1 | iex
+```
+3. 选择1，然后y/yes
 
+### 6.2 提示找不到cursor
 
+这种情况应该是cursor没有安装在默认位置，我们在cursor的默认安装位置新建一个目录联接，指引到真实cursor安装位置，这样脚本就能找到安装位置了，命令如下：
+
+```bat
+mklink /J "C:\Users\<用户名>\AppData\Local\Programs\cursor" "D:\DevTools\Cursor"
+```
+
+将用户名和 cursor安装位置替换成自己的，然后重新执行6.1命令即可。
